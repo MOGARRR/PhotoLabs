@@ -1,10 +1,10 @@
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import { use, useState } from 'react';
+import { useState } from 'react';
 
 const PhotoFavButton = () => {
   const [likePhoto, setLikePhoto] = useState(false);
-  const handleLikePhoto = () => setLikePhoto(!likePhoto);
+  const handleLikePhoto = () => setLikePhoto(prevLikePhoto => !prevLikePhoto);
 
   return (
     <div className="photo-list__fav-icon " onClick={handleLikePhoto}>
