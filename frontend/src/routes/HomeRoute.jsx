@@ -5,8 +5,8 @@ import TopNavigation from '../components/TopNavigationBar';
 const HomeRoute = (props) => {
   return (
     <div className="home-route">
-            <TopNavigation/>
-            <PhotoList/>
+            <TopNavigation topics={props.topics}/>
+            <PhotoList photos={props.photos}/>
     </div>
   );
 };
