@@ -13,7 +13,7 @@ const PhotoList = (props) => {
     urls={photo.urls}
     user={photo.user}
     addPhotoToArray={props.addPhotoToArray}
-    toggleModalStatus={props.toggleModalStatus}
+    toggleModalDisplay={props.toggleModalDisplay}
     />
   ))
 

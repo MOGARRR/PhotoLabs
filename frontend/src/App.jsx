@@ -14,7 +14,10 @@ const App = () => {
   const [notifactionStatus, setNotifactionStatus] = useState(false);
   const [modalStatus, setModalStatus] = useState(false);
 
-  const toggleModalStatus = () => setModalStatus(!modalStatus);
+  const toggleModalDisplay = (photoData) => {
+    setModalStatus(!modalStatus);
+    console.log(photoData);
+  }
 
   const addPhotoToArray = (photoId) => {
     setLikePhotoArray(prevLikePhotoArray => [photoId, ...prevLikePhotoArray]);
@@ -24,14 +27,14 @@ const App = () => {
   return (
     <div className="App">
 
-      {modalStatus && <PhotoDetailsModal toggleModalStatus={toggleModalStatus}/>}
+      {modalStatus && <PhotoDetailsModal toggleModalDisplay={toggleModalDisplay}/>}
 
       <HomeRoute
       topics={topics}
       photos={photos}
       addPhotoToArray={addPhotoToArray}
       notifactionStatus={notifactionStatus}
-      toggleModalStatus={toggleModalStatus}
+      toggleModalDisplay={toggleModalDisplay}
       />
     </div>
   );

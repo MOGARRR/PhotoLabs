@@ -3,7 +3,7 @@ import PhotoList from '../components/PhotoList';
 import TopNavigation from '../components/TopNavigationBar';
 
 const HomeRoute = (props) => {
-  const {topics, photos, addPhotoToArray, notifactionStatus, toggleModalStatus} = props;
+  const {topics, photos, addPhotoToArray, notifactionStatus, toggleModalDisplay} = props;
   return (
     <div className="home-route">
             <TopNavigation 
@@ -13,7 +13,7 @@ const HomeRoute = (props) => {
             <PhotoList 
             photos={photos}
             addPhotoToArray={addPhotoToArray}
-            toggleModalStatus={toggleModalStatus}
+            toggleModalDisplay={toggleModalDisplay}
             />
     </div>
   );
