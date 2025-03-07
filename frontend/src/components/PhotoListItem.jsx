@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
-
 const PhotoListItem = (props) => {
-  const { location, urls, user, id, addPhotoToArray} = props;
+  const { location, urls, user, id, addPhotoToArray, toggleModalStatus} = props;
 
 
   
@@ -17,6 +16,7 @@ const PhotoListItem = (props) => {
         className="photo-list__image"
         src={urls.regular}
         alt="Regular image"
+        onClick={toggleModalStatus}
       />
       <div className="photo-list__user-details">
         <img
