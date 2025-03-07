@@ -1,16 +1,21 @@
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const PhotoFavButton = () => {
+const PhotoFavButton = (props) => {
+const {addPhotoToArray, id} = props;
   const [likePhoto, setLikePhoto] = useState(false);
-  const handleLikePhoto = () => setLikePhoto(prevLikePhoto => !prevLikePhoto);
+  
+  const handleLikePhoto = () => {
+    setLikePhoto(!likePhoto);
+    addPhotoToArray(id);
+  }
+  
 
   return (
     <div className="photo-list__fav-icon " onClick={handleLikePhoto}>
       <div className="photo-list__fav-icon-svg">
-      {likePhoto && <FavIcon className='photo-list__fav-icon'/>}
-      {!likePhoto && <FavIcon className='photo-list__fav-icon-svg'/>}
+      <FavIcon selected={likePhoto}/>
       </div>
 
     </div>
