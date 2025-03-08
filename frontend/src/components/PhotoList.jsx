@@ -12,6 +12,7 @@ const PhotoList = (props) => {
     location={photo.location}
     urls={photo.urls}
     user={photo.user}
+    similar_photos={photo.similar_photos}
     addPhotoToArray={props.addPhotoToArray}
     toggleModalDisplay={props.toggleModalDisplay}
     />

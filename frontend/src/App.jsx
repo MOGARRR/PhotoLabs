@@ -18,7 +18,6 @@ const App = () => {
   const toggleModalDisplay = (photoData) => {
     setModalStatus(!modalStatus);
     setModalDisplayData(photoData);
-    console.log(photoData);
   }
 
   const addPhotoToArray = (photoId) => {
@@ -28,12 +27,6 @@ const App = () => {
 
   return (
     <div className="App">
-
-      {modalStatus && <PhotoDetailsModal 
-      toggleModalDisplay={toggleModalDisplay}
-      modalDisplayData={modalDisplayData}
-      />}
-
       <HomeRoute
       topics={topics}
       photos={photos}
@@ -41,6 +34,11 @@ const App = () => {
       notifactionStatus={notifactionStatus}
       toggleModalDisplay={toggleModalDisplay}
       />
+      
+      {modalStatus && <PhotoDetailsModal 
+      toggleModalDisplay={toggleModalDisplay}
+      modalDisplayData={modalDisplayData}
+      />}
     </div>
   );
 };

@@ -1,6 +1,8 @@
-import FavIcon from './FavIcon';
+// import FavIcon from './FavIcon';
+
 import '../styles/PhotoFavButton.scss';
 import { useEffect, useState } from 'react';
+import FavIcon from './FavIcon';
 
 const PhotoFavButton = (props) => {
 const {addPhotoToArray, id} = props;
