@@ -2,21 +2,31 @@ import { useState, useEffect } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
-  const { location, urls, user, id, similar_photos, addPhotoToArray, toggleModalDisplay} = props;
+  const {
+    location,
+    urls,
+    user,
+    id,
+    similar_photos,
+    addPhotoToArray,
+    toggleModalDisplay,
+    likePhotoArray,
+  } = props;
 
-
-  
   return (
     <div className="photo-list__item">
-      <PhotoFavButton 
-      id={id}
-      addPhotoToArray={addPhotoToArray}
+      <PhotoFavButton
+        id={id}
+        addPhotoToArray={addPhotoToArray}
+        likePhotoArray={likePhotoArray}
       />
       <img
         className="photo-list__image"
         src={urls.regular}
         alt="Regular image"
-        onClick={() => {toggleModalDisplay({id,location,urls,user, similar_photos})}}
+        onClick={() => {
+          toggleModalDisplay({ id, location, urls, user, similar_photos });
+        }}
       />
       <div className="photo-list__user-details">
         <img
