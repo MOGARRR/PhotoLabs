@@ -25,6 +25,10 @@ const App = () => {
     setNotifactionStatus(true);
   }
 
+  useEffect(() => {
+    console.log(likePhotoArray);
+  },[likePhotoArray])
+
   return (
     <div className="App">
       <HomeRoute
@@ -38,6 +42,7 @@ const App = () => {
       {modalStatus && <PhotoDetailsModal 
       toggleModalDisplay={toggleModalDisplay}
       modalDisplayData={modalDisplayData}
+      addPhotoToArray={addPhotoToArray}
       />}
     </div>
   );

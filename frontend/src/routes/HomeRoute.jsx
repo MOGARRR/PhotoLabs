@@ -5,9 +5,7 @@ import { use, useEffect } from 'react';
 
 const HomeRoute = (props) => {
   const {topics, photos, addPhotoToArray, notifactionStatus, toggleModalDisplay} = props;
-  useEffect(() => {
-    console.log(photos)
-  })
+
   return (
     <div className="home-route">
             <TopNavigation 

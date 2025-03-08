@@ -1,16 +1,13 @@
 import "../styles/PhotoDetailsModal.scss";
 import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "../components/PhotoList";
-import { useEffect } from "react";
 import PhotoFavButton from "../components/PhotoFavButton";
 
-const PhotoDetailsModal = ({ toggleModalDisplay, modalDisplayData }) => {
-  const { location, urls, user, similar_photos } = modalDisplayData;
+const PhotoDetailsModal = ({ toggleModalDisplay, modalDisplayData, addPhotoToArray }) => {
+  const { id, location, urls, user, similar_photos } = modalDisplayData;
 
   const parsedSimlarPhotos = Object.values(similar_photos);
-  useEffect(() => {
-    console.log(parsedSimlarPhotos);
-  }, [parsedSimlarPhotos]);
+ 
   return (
     <div className="photo-details-modal">
       <button
@@ -22,7 +19,8 @@ const PhotoDetailsModal = ({ toggleModalDisplay, modalDisplayData }) => {
 
       <div className="photo-details-modal__images">       
         <PhotoFavButton
-        // addPhotoToArray={addPhotoToArray}
+        id={id}
+        addPhotoToArray={addPhotoToArray}
         /> 
       <img src={urls.full} alt="" className=" photo-details-modal__image" />
       
@@ -48,7 +46,7 @@ const PhotoDetailsModal = ({ toggleModalDisplay, modalDisplayData }) => {
       <div className="photo-details-modal__images">
       <PhotoList
       photos={parsedSimlarPhotos}
-      // addPhotoToArray={addPhotoToArray}
+      addPhotoToArray={addPhotoToArray}
       toggleModalDisplay={toggleModalDisplay}
       />
       </div>
