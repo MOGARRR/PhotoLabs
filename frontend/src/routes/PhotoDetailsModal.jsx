@@ -4,10 +4,11 @@ import PhotoList from "../components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 
 const PhotoDetailsModal = ({
-  toggleModalDisplay,
+  setPhotoSelected,
   modalDisplayData,
-  addPhotoToArray,
+  updateToFavPhotoIds,
   likePhotoArray,
+  onClosePhotoDetailsModal,
 }) => {
   const { id, location, urls, user, similar_photos } = modalDisplayData;
 
@@ -17,7 +18,7 @@ const PhotoDetailsModal = ({
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={toggleModalDisplay}
+        onClick={onClosePhotoDetailsModal}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
@@ -25,7 +26,7 @@ const PhotoDetailsModal = ({
       <div className="photo-details-modal__images">
         <PhotoFavButton
           id={id}
-          addPhotoToArray={addPhotoToArray}
+          updateToFavPhotoIds={updateToFavPhotoIds}
           likePhotoArray={likePhotoArray}
         />
         <img src={urls.full} alt="" className=" photo-details-modal__image" />
@@ -52,8 +53,8 @@ const PhotoDetailsModal = ({
       <div className="photo-details-modal__images">
         <PhotoList
           photos={parsedSimlarPhotos}
-          addPhotoToArray={addPhotoToArray}
-          toggleModalDisplay={toggleModalDisplay}
+          updateToFavPhotoIds={updateToFavPhotoIds}
+          setPhotoSelected={setPhotoSelected}
           likePhotoArray={likePhotoArray}
         />
       </div>

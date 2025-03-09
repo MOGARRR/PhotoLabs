@@ -10,8 +10,8 @@ const PhotoList = (props) => {
       urls={photo.urls}
       user={photo.user}
       similar_photos={photo.similar_photos}
-      addPhotoToArray={props.addPhotoToArray}
-      toggleModalDisplay={props.toggleModalDisplay}
+      updateToFavPhotoIds={props.updateToFavPhotoIds}
+      setPhotoSelected={props.setPhotoSelected}
       likePhotoArray={props.likePhotoArray}
     />
   ));

@@ -8,8 +8,8 @@ const PhotoListItem = (props) => {
     user,
     id,
     similar_photos,
-    addPhotoToArray,
-    toggleModalDisplay,
+    updateToFavPhotoIds,
+    setPhotoSelected,
     likePhotoArray,
   } = props;
 
@@ -17,7 +17,7 @@ const PhotoListItem = (props) => {
     <div className="photo-list__item">
       <PhotoFavButton
         id={id}
-        addPhotoToArray={addPhotoToArray}
+        updateToFavPhotoIds={updateToFavPhotoIds}
         likePhotoArray={likePhotoArray}
       />
       <img
@@ -25,7 +25,7 @@ const PhotoListItem = (props) => {
         src={urls.regular}
         alt="Regular image"
         onClick={() => {
-          toggleModalDisplay({ id, location, urls, user, similar_photos });
+          setPhotoSelected({ id, location, urls, user, similar_photos });
         }}
       />
       <div className="photo-list__user-details">

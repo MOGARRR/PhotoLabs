@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import FavIcon from "./FavIcon";
 
 const PhotoFavButton = (props) => {
-  const { id, addPhotoToArray, likePhotoArray } = props;
+  const { id, updateToFavPhotoIds, likePhotoArray } = props;
  
   const handleLikePhoto = () => {
-    addPhotoToArray(id);
+    updateToFavPhotoIds(id);
   };
 
   return (

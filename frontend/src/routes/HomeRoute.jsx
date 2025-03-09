@@ -7,9 +7,9 @@ const HomeRoute = (props) => {
   const {
     topics,
     photos,
-    addPhotoToArray,
+    updateToFavPhotoIds,
     notifactionStatus,
-    toggleModalDisplay,
+    setPhotoSelected,
     likePhotoArray,
   } = props;
 
@@ -18,8 +18,8 @@ const HomeRoute = (props) => {
       <TopNavigation topics={topics} notifactionStatus={notifactionStatus} />
       <PhotoList
         photos={photos}
-        addPhotoToArray={addPhotoToArray}
-        toggleModalDisplay={toggleModalDisplay}
+        updateToFavPhotoIds={updateToFavPhotoIds}
+        setPhotoSelected={setPhotoSelected}
         likePhotoArray={likePhotoArray}
       />
     </div>
