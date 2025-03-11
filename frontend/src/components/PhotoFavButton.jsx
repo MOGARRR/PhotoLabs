@@ -1,7 +1,5 @@
-// import FavIcon from './FavIcon';
 
 import "../styles/PhotoFavButton.scss";
-import { useEffect, useState } from "react";
 import FavIcon from "./FavIcon";
 
 const PhotoFavButton = (props) => {
@@ -10,7 +8,7 @@ const PhotoFavButton = (props) => {
   const handleLikePhoto = () => {
     updateToFavPhotoIds(id);
   };
-
+ 
   return (
     <div
       className="photo-list__fav-icon "

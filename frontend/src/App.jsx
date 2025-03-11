@@ -4,19 +4,22 @@ import HomeRoute from "./routes/HomeRoute";
 import photos from "./mocks/photos";
 import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
-import useApplicationData from "./hooks/useApplicationData";
+import {useApplicationData} from "./hooks/useApplicationData";
+import { useEffect } from "react";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
   const {
-    toggleModal,
-    likePhotoArray,
-    modalDisplayData,
+    state,
     updateToFavPhotoIds,
-    onClosePhotoDetailsModal,
     setPhotoSelected,
+    onClosePhotoDetailsModal
   } = useApplicationData();
 
+  const {likePhotoArray,toggleModal, modalDisplayData} = state;
+  useEffect(() => {
+    console.log(toggleModal);
+  },[toggleModal])
   return (
     <div className="App">
       <HomeRoute

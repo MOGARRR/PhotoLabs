@@ -1,44 +1,65 @@
-import { useState } from "react"
+// import { useState } from "react"
+import { useReducer } from "react";
 
+
+export const ACTIONS = {
+  FAV_PHOTO_ADDED: 'FAV_PHOTO_ADDED',
+  FAV_PHOTO_REMOVED: 'FAV_PHOTO_REMOVED',
+  SET_PHOTO_DATA: 'SET_PHOTO_DATA',
+  SET_TOPIC_DATA: 'SET_TOPIC_DATA',
+  SELECT_PHOTO: 'SELECT_PHOTO',
+  DESELECT_PHOTO:'DESELECT_PHOTO',
+  DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS'
+}
 
 const useApplicationData = () => {
-
-  const [likePhotoArray, setLikePhotoArray] = useState([]);
-  const [toggleModal, setToggleModal] = useState(false);
-  const [modalDisplayData, setModalDisplayData] = useState();
+  
+  function reducer(state, action) {
+    switch (action.type) {
+      case ACTIONS.FAV_PHOTO_ADDED:
+      return {...state, likePhotoArray:[action.id, ...state.likePhotoArray]};
+      case ACTIONS.FAV_PHOTO_REMOVED:
+        return {...state, likePhotoArray: state.likePhotoArray.filter((id) => id != action.id)}
+      case ACTIONS.SELECT_PHOTO:
+        return {...state, toggleModal:true}
+      case ACTIONS.DESELECT_PHOTO:
+        return {...state, toggleModal:false}
+      case ACTIONS.SET_PHOTO_DATA:
+        return {...state, modalDisplayData: action.payload}
+      default:
+        throw new Error(`Tried to reduce with unsupported action type: ${action.type}`);
+      }
+    }
+    
+    const [state ,dispatch] = useReducer(reducer, {
+      likePhotoArray: [],
+      toggleModal: false,
+      modalDisplayData: 0,
+    })
 
   const updateToFavPhotoIds = (photoId) => {
-    likePhotoArray.includes(photoId)
-      ? setLikePhotoArray((prevLikePhotoArray) =>
-          prevLikePhotoArray.filter((id) => id != photoId)
-        )
-      : setLikePhotoArray((prevLikePhotoArray) => [
-          photoId,
-          ...prevLikePhotoArray,
-        ]);
+    state.likePhotoArray.includes(photoId)
+      ? dispatch({type:'FAV_PHOTO_REMOVED', id:photoId})
+      : dispatch({type:'FAV_PHOTO_ADDED', id:photoId})
   };
 
   const setPhotoSelected = (photoData) => {
-    setToggleModal(true);
-    setModalDisplayData(photoData)
+    dispatch({type:'SET_PHOTO_DATA', payload:photoData})
+    dispatch({type:'SELECT_PHOTO'})
   };
 
-  const onClosePhotoDetailsModal = () => setToggleModal(false);
+  const onClosePhotoDetailsModal = () => dispatch({type:'DESELECT_PHOTO'});
 
-  const state = {
+  
+
+  return {
+    state,
     updateToFavPhotoIds,
     setPhotoSelected,
     onClosePhotoDetailsModal,
-    toggleModal,
-    likePhotoArray,
-    modalDisplayData,
   };
-  return state;
 
 };
 
-// The state object will contain the entire state of the application.
-// The updateToFavPhotoIds action can be used to set the favourite photos.
-// The setPhotoSelected action can be used when the user selects a photo.
-// The onClosePhotoDetailsModal action can be used to close the modal.
-export default useApplicationData
+
+export {useApplicationData}

@@ -18,7 +18,7 @@ const PhotoDetailsModal = ({
     <div className="photo-details-modal">
       <button
         className="photo-details-modal__close-button"
-        onClick={onClosePhotoDetailsModal}
+        onClick={()=>{onClosePhotoDetailsModal()}}
       >
         <img src={closeSymbol} alt="close symbol" />
       </button>
@@ -54,8 +54,9 @@ const PhotoDetailsModal = ({
         <PhotoList
           photos={parsedSimlarPhotos}
           updateToFavPhotoIds={updateToFavPhotoIds}
-          setPhotoSelected={setPhotoSelected}
+          setPhotoSelected={null}
           likePhotoArray={likePhotoArray}
+          onClosePhotoDetailsModal={onClosePhotoDetailsModal}
         />
       </div>
     </div>
