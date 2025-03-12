@@ -1,8 +1,6 @@
 // import PhotoListItem from './components/PhotoListItem';
 import "./App.scss";
 import HomeRoute from "./routes/HomeRoute";
-import photos from "./mocks/photos";
-import topics from "./mocks/topics";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
 import {useApplicationData} from "./hooks/useApplicationData";
 import { useEffect } from "react";
@@ -16,15 +14,17 @@ const App = () => {
     onClosePhotoDetailsModal
   } = useApplicationData();
 
-  const {likePhotoArray,toggleModal, modalDisplayData} = state;
+
+
+  const {likePhotoArray,toggleModal, modalDisplayData, photoData, topicData} = state;
   useEffect(() => {
     console.log(toggleModal);
   },[toggleModal])
   return (
     <div className="App">
       <HomeRoute
-        topics={topics}
-        photos={photos}
+        topics={topicData}
+        photos={photoData}
         updateToFavPhotoIds={updateToFavPhotoIds}
         notifactionStatus={likePhotoArray.length > 0}
         setPhotoSelected={setPhotoSelected}
