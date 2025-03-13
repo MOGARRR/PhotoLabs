@@ -13,6 +13,7 @@ const PhotoList = (props) => {
       updateToFavPhotoIds={props.updateToFavPhotoIds}
       setPhotoSelected={props.setPhotoSelected}
       likePhotoArray={props.likePhotoArray}
+      dark={props.dark}
     />
   ));
 

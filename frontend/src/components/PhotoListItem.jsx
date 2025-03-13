@@ -10,6 +10,7 @@ const PhotoListItem = (props) => {
     updateToFavPhotoIds,
     setPhotoSelected,
     likePhotoArray,
+    dark,
   } = props;
 
   return (
@@ -41,7 +42,7 @@ const PhotoListItem = (props) => {
         />
         <div className="photo-list__user-info">
           {user.name}
-          <div className="photo-list__user-location">
+          <div className={`photo-list__user-location ${dark}`}>
             {location.city},{location.country}
           </div>
         </div>

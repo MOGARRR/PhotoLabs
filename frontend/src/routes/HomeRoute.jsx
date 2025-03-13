@@ -11,6 +11,8 @@ const HomeRoute = (props) => {
     setPhotoSelected,
     likePhotoArray,
     setTopicId,
+    toggleDarkMode,
+    dark,
   } = props;
 
   return (
@@ -19,12 +21,15 @@ const HomeRoute = (props) => {
         topics={topics}
         notifactionStatus={notifactionStatus}
         setTopicId={setTopicId}
+        toggleDarkMode={toggleDarkMode}
+        dark={dark}
       />
       <PhotoList
         photos={photos}
         updateToFavPhotoIds={updateToFavPhotoIds}
         setPhotoSelected={setPhotoSelected}
         likePhotoArray={likePhotoArray}
+        dark={dark}
       />
     </div>
   );

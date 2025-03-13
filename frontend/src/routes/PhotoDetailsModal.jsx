@@ -9,6 +9,7 @@ const PhotoDetailsModal = (props) => {
   updateToFavPhotoIds,
   likePhotoArray,
   onClosePhotoDetailsModal,
+  dark,
   } = props;
 
   const {
@@ -22,9 +23,10 @@ const PhotoDetailsModal = (props) => {
   const parsedSimlarPhotos = Object.values(similar_photos);
 
   return (
-    <div className="photo-details-modal">
+    <div className={`photo-details-modal ${dark}`}>
       <button
-        className="photo-details-modal__close-button"
+        className={`photo-details-modal__close-button ${dark}`}
+        //get new close symbol
         onClick={()=>{onClosePhotoDetailsModal()}}
       >
         <img src={closeSymbol} alt="close symbol" />
@@ -52,7 +54,7 @@ const PhotoDetailsModal = (props) => {
             </div>
           </div>
         </header>
-        <p className="photo-details-modal__top-bar photo-details-modal__header">Simlar Photos</p>
+        <p className={`photo-details-modal__top-bar photo-details-modal__header ${dark}`}>Simlar Photos</p>
       </div>
 
       <div className="photo-details-modal__images">

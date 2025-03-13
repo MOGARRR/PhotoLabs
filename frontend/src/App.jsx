@@ -12,6 +12,8 @@ const App = () => {
     setPhotoSelected,
     onClosePhotoDetailsModal,
     setTopicId,
+    toggleDarkMode,
+    dark,
   } = useApplicationData();
 
   const {
@@ -20,10 +22,12 @@ const App = () => {
     modalDisplayData,
     photoData,
     topicData,
+    darkModeStatus,
   } = state;
 
+  
   return (
-    <div className="App">
+    <div className={`App ${dark}`}>
       <HomeRoute
         topics={topicData}
         photos={photoData}
@@ -32,6 +36,8 @@ const App = () => {
         setPhotoSelected={setPhotoSelected}
         likePhotoArray={likePhotoArray}
         setTopicId={setTopicId}
+        toggleDarkMode={toggleDarkMode}
+        dark={dark}
       />
 
       {toggleModal && (
@@ -41,6 +47,7 @@ const App = () => {
           updateToFavPhotoIds={updateToFavPhotoIds}
           likePhotoArray={likePhotoArray}
           onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+          dark={dark}
         />
       )}
     </div>

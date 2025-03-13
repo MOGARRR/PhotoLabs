@@ -8,6 +8,7 @@ const TopicList = (props) => {
       id={topic.id}
       title={topic.title}
       setTopicId={props.setTopicId}
+      dark={props.dark}
     />
   ));
 

@@ -12,6 +12,7 @@ export const ACTIONS = {
   SELECT_PHOTO: "SELECT_PHOTO",
   DESELECT_PHOTO: "DESELECT_PHOTO",
   DISPLAY_PHOTO_DETAILS: "DISPLAY_PHOTO_DETAILS",
+  TOGGLE_DARK_MODE: 'TOGGLE_DARK_MODE',
 };
 
 const useApplicationData = () => {
@@ -41,6 +42,8 @@ const useApplicationData = () => {
         return { ...state, topicId: action.id };
       case ACTIONS.GET_TOPIC_NEW_DATA:
         return { ...state, photoData: action.payload };
+      case ACTIONS.TOGGLE_DARK_MODE:
+        return {...state, darkModeStatus: !state.darkModeStatus}
       default:
         throw new Error(
           `Tried to reduce with unsupported action type: ${action.type}`
@@ -51,11 +54,16 @@ const useApplicationData = () => {
   const [state, dispatch] = useReducer(reducer, {
     likePhotoArray: [],
     toggleModal: false,
+    darkModeStatus: false,
     modalDisplayData: 0,
     photoData: [],
     topicData: [],
     topicId: null,
   });
+
+  useEffect(() => {
+    console.log(state.darkModeStatus);
+  },[state.darkModeStatus])
 
   const updateToFavPhotoIds = (photoId) => {
     state.likePhotoArray.includes(photoId)
@@ -71,6 +79,10 @@ const useApplicationData = () => {
   const onClosePhotoDetailsModal = () => dispatch({ type: "DESELECT_PHOTO" });
 
   const setTopicId = (id) => dispatch({ type: "SET_TOPIC_ID", id: id });
+
+  const toggleDarkMode = () => dispatch({type:'TOGGLE_DARK_MODE'}); 
+
+  const dark = state.darkModeStatus ? "App dark" : "";
 
   useEffect(() => {
     fetch("http://localhost:8001/api/photos", { method: "GET" })
@@ -102,6 +114,8 @@ const useApplicationData = () => {
     setPhotoSelected,
     onClosePhotoDetailsModal,
     setTopicId,
+    toggleDarkMode,
+    dark,
   };
 };
 

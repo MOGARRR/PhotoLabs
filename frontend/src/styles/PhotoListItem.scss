@@ -35,7 +35,13 @@ div.photo-list__item {
 
       div.photo-list__user-location {
         color: #838383;
+      
+      
       }
+      div.photo-list__user-location.dark {
+        color: #d4d2d2;
+      }
+      
     }
   }
 }
