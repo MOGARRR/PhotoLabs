@@ -11,11 +11,15 @@ const HomeRoute = (props) => {
     notifactionStatus,
     setPhotoSelected,
     likePhotoArray,
+    setTopicId,
   } = props;
 
   return (
     <div className="home-route">
-      <TopNavigation topics={topics} notifactionStatus={notifactionStatus} />
+      <TopNavigation 
+      topics={topics}
+      notifactionStatus={notifactionStatus}
+      setTopicId={setTopicId} />
       <PhotoList
         photos={photos}
         updateToFavPhotoIds={updateToFavPhotoIds}

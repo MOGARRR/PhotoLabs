@@ -11,15 +11,14 @@ const App = () => {
     state,
     updateToFavPhotoIds,
     setPhotoSelected,
-    onClosePhotoDetailsModal
+    onClosePhotoDetailsModal,
+    setTopicId,
   } = useApplicationData();
 
 
 
   const {likePhotoArray,toggleModal, modalDisplayData, photoData, topicData} = state;
-  useEffect(() => {
-    console.log(toggleModal);
-  },[toggleModal])
+
   return (
     <div className="App">
       <HomeRoute
@@ -29,6 +28,7 @@ const App = () => {
         notifactionStatus={likePhotoArray.length > 0}
         setPhotoSelected={setPhotoSelected}
         likePhotoArray={likePhotoArray}
+        setTopicId={setTopicId}
       />
 
       {toggleModal && (
