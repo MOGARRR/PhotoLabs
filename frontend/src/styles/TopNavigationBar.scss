@@ -19,8 +19,20 @@
   margin-left: 24px;
 }
 
-
+.icon{
+  cursor: pointer;
+  width: 40px;
+  rotate: 180deg;
+  position: relative;
+  animation: icon 3.5s linear infinite;
+}
 
 .dark {
   color: rgb(240, 240, 240);
+}
+
+@keyframes icon {
+  0% {top: 0px;}
+  50% {top: -15px;}
+  90% {top: 0px;}
 }
