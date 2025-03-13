@@ -2,8 +2,7 @@
 import "./App.scss";
 import HomeRoute from "./routes/HomeRoute";
 import PhotoDetailsModal from "./routes/PhotoDetailsModal";
-import {useApplicationData} from "./hooks/useApplicationData";
-import { useEffect } from "react";
+import { useApplicationData } from "./hooks/useApplicationData";
 
 // Note: Rendering a single component to build components in isolation
 const App = () => {
@@ -15,9 +14,13 @@ const App = () => {
     setTopicId,
   } = useApplicationData();
 
-
-
-  const {likePhotoArray,toggleModal, modalDisplayData, photoData, topicData} = state;
+  const {
+    likePhotoArray,
+    toggleModal,
+    modalDisplayData,
+    photoData,
+    topicData,
+  } = state;
 
   return (
     <div className="App">

@@ -1,7 +1,6 @@
 import "../styles/HomeRoute.scss";
 import PhotoList from "../components/PhotoList";
 import TopNavigation from "../components/TopNavigationBar";
-import { use, useEffect } from "react";
 
 const HomeRoute = (props) => {
   const {
@@ -16,10 +15,11 @@ const HomeRoute = (props) => {
 
   return (
     <div className="home-route">
-      <TopNavigation 
-      topics={topics}
-      notifactionStatus={notifactionStatus}
-      setTopicId={setTopicId} />
+      <TopNavigation
+        topics={topics}
+        notifactionStatus={notifactionStatus}
+        setTopicId={setTopicId}
+      />
       <PhotoList
         photos={photos}
         updateToFavPhotoIds={updateToFavPhotoIds}

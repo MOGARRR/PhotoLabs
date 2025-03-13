@@ -3,14 +3,21 @@ import closeSymbol from "../assets/closeSymbol.svg";
 import PhotoList from "../components/PhotoList";
 import PhotoFavButton from "../components/PhotoFavButton";
 
-const PhotoDetailsModal = ({
-  setPhotoSelected,
+const PhotoDetailsModal = (props) => {
+ const {
   modalDisplayData,
   updateToFavPhotoIds,
   likePhotoArray,
   onClosePhotoDetailsModal,
-}) => {
-  const { id, location, urls, user, similar_photos } = modalDisplayData;
+  } = props;
+
+  const {
+    id,
+    location,
+    urls,
+    user,
+    similar_photos
+  } = modalDisplayData;
 
   const parsedSimlarPhotos = Object.values(similar_photos);
 
@@ -45,9 +52,7 @@ const PhotoDetailsModal = ({
             </div>
           </div>
         </header>
-        <p className="photo-details-modal__top-bar photo-details-modal__header">
-          Simlar Photos
-        </p>
+        <p className="photo-details-modal__top-bar photo-details-modal__header">Simlar Photos</p>
       </div>
 
       <div className="photo-details-modal__images">

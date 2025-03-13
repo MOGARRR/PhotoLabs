@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 const PhotoListItem = (props) => {
@@ -25,7 +24,13 @@ const PhotoListItem = (props) => {
         src={urls.regular}
         alt="Regular image"
         onClick={() => {
-          setPhotoSelected({ id, location, urls, user, similar_photos });
+          setPhotoSelected({
+            id,
+            location,
+            urls,
+            user,
+            similar_photos,
+          });
         }}
       />
       <div className="photo-list__user-details">
@@ -37,7 +42,7 @@ const PhotoListItem = (props) => {
         <div className="photo-list__user-info">
           {user.name}
           <div className="photo-list__user-location">
-            {location.city}, {location.country}
+            {location.city},{location.country}
           </div>
         </div>
       </div>

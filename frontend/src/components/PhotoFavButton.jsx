@@ -1,19 +1,18 @@
-
 import "../styles/PhotoFavButton.scss";
 import FavIcon from "./FavIcon";
 
 const PhotoFavButton = (props) => {
-  const { id, updateToFavPhotoIds, likePhotoArray } = props;
- 
-  const handleLikePhoto = () => {
-    updateToFavPhotoIds(id);
-  };
- 
+  const {
+    id,
+    updateToFavPhotoIds,
+    likePhotoArray
+  } = props;
+
   return (
     <div
       className="photo-list__fav-icon "
       onClick={() => {
-        handleLikePhoto();
+        updateToFavPhotoIds(id);
       }}
     >
       <div className="photo-list__fav-icon-svg">
